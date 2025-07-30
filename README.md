@@ -96,5 +96,5 @@ These arrays are updated iteratively by different CUDA kernels, enabling converg
 This project draws inspiration from and builds upon existing research and documentation in the fields of parallel graph algorithms and CUDA programming:
 
 - 📄 **Parallel Vertex Cover Heuristics**  
-  [Luby-style Parallel Vertex Cover](https://people.eecs.berkeley.edu/~satish/papers/sc2009.pdf) — Satish et al., SC '09  
-  Discusses parallel heuristics and tie-breaking strategies for graph algorithms on GPUs.
+  [Accelerating large graph algorithms on the GPU using CUDA]([https://people.eecs.berkeley.edu/~satish/papers/sc2009.pdf](https://cdn.iiit.ac.in/cdn/cvit.iiit.ac.in/papers/Pawan07accelerating.pdf)) — Pawan Harish and P. J. Narayanan 
+
