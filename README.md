@@ -44,47 +44,47 @@ nvcc -O2 -arch=sm_89 -o mvc min_vertx.cu
 # Run the MVC program with input and output file arguments
 ./mvc graph_output.txt output.txt
 ```
-🧩 Data Structures
+## 🧩 Data Structures
+
 The algorithm uses several key arrays for parallel computation:
 
-PMvc (int* PMvc) — Previous Minimum Vertex Cover:
-A binary array indicating whether a vertex is proposed to be part of the cover set in the current iteration.
-PMvc[i] = 1 means vertex i is being considered for inclusion.
+- **PMvc** (`int* PMvc`) — *Proposed Minimum Vertex Cover*:  
+  A binary array indicating whether a vertex is proposed to be part of the cover set in the current iteration.  
+  - `PMvc[i] = 1` means vertex `i` is being considered for inclusion.
 
-Mvc (int* Mvc) — Final Vertex Cover:
-The actual cover set being constructed. A value of 1 at index i means vertex i is included in the final cover.
-This array is updated across iterations based on PMvc and neighbor state.
+- **Mvc** (`int* Mvc`) — *Final Vertex Cover*:  
+  The actual cover set being constructed.  
+  - `Mvc[i] = 1` means vertex `i` is included in the final cover.  
+  - This array is updated across iterations based on `PMvc` and neighbor state.
 
-Adj (int* Adj) — Adjacency Status:
-Marks whether all neighbors of a vertex are already covered.
-Adj[i] = 1 means all neighbors of vertex i are already in the cover (safe), otherwise 0 (still needs to be handled).
+- **Adj** (`int* Adj`) — *Adjacency Status*:  
+  Marks whether all neighbors of a vertex are already covered.  
+  - `Adj[i] = 1` means all neighbors of vertex `i` are already in the cover (safe).  
+  - `Adj[i] = 0` means the vertex still has uncovered neighbors.
 
 These arrays are updated iteratively by different CUDA kernels, enabling convergence to a valid cover set.
 
-🔍 Key Kernels
+---
 
-kernel1: Initializes potential vertex cover set.
+## 🔍 Key Kernels
 
-kernel2: Marks nodes with uncovered neighbors.
+- **kernel1**: Initializes the proposed vertex cover set (`PMvc`).
+- **kernel2**: Checks each vertex’s neighbors and marks whether it's fully covered (`Adj`).
+- **kernel3**: Adjusts the proposed and final cover sets based on coverage status.
+- **kernel4**: Resolves conflicts and tie-breaking using thread ID priority logic.
 
-kernel3: Updates PMvc set and adjusts Mvc set.
+---
 
-kernel4: Resolves tie-breaking conditions by thread ID priority.
+## 🧠 Notes
 
-🧠 Notes
-The termination condition is flagged by a host-visible variable updated by device threads.
+- The termination condition is flagged using a host-visible variable (`*terminate`) that device threads update when changes are made.
+- Edge cases like isolated nodes (nodes with degree 0) are correctly handled.
+- This parallel approach performs best on large, sparse graphs due to reduced inter-thread contention.
 
-Edge cases (like isolated nodes) are handled.
+---
 
-Performance and correctness improve with large, sparse graphs.
+## 🖥️ Recommended GPU Specs
 
-🖥️ Recommended GPU Specs
-At least 6 GB VRAM
-
-CUDA Compute Capability 6.0+
-
-Recommended: NVIDIA RTX series or A100 for best performance
-
-
-
-
+- ✅ At least **6 GB** VRAM  
+- ✅ CUDA Compute Capability **6.0+**  
+- ✅ Recommended: **NVIDIA RTX series** or **A100**
