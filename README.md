@@ -88,3 +88,13 @@ These arrays are updated iteratively by different CUDA kernels, enabling converg
 - ✅ At least **6 GB** VRAM  
 - ✅ CUDA Compute Capability **6.0+**  
 - ✅ Recommended: **NVIDIA RTX series** or **A100**
+
+---
+
+## 📚 Resources
+
+This project draws inspiration from and builds upon existing research and documentation in the fields of parallel graph algorithms and CUDA programming:
+
+- 📄 **Parallel Vertex Cover Heuristics**  
+  [Luby-style Parallel Vertex Cover](https://people.eecs.berkeley.edu/~satish/papers/sc2009.pdf) — Satish et al., SC '09  
+  Discusses parallel heuristics and tie-breaking strategies for graph algorithms on GPUs.
