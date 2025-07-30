@@ -1,4 +1,4 @@
-# Parallel Minimum Vertex Cover using CUDA
+# Minimum Vertex Cover using CUDA
 
 This project implements a parallel algorithm for solving the **Minimum Vertex Cover** problem using **CUDA** to leverage GPU acceleration. The implementation is optimized for performance and designed to handle large graphs efficiently.
 
@@ -18,3 +18,15 @@ This project implements a heuristic, parallel solution using multiple CUDA kerne
   - Iterative refinement and termination detection.
 - Host-device coordination using unified memory and synchronization flags.
 - Designed for scalable performance on large graphs.
+
+## 📁 File Structure
+
+.
+├── graph_gen.cpp # C++ file to generate random undirected graphs
+├── min_vertx.cu # CUDA implementation of the MVC algorithm
+├── un_graph.h # C code which defines the structre of the Undirected graph.
+
+
+## ⚙️ Build Instructions
+
+Make sure you have the **CUDA toolkit** installed and `nvcc` available.
