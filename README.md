@@ -21,9 +21,9 @@ This project implements a heuristic, parallel solution using multiple CUDA kerne
 
 ## 📁 File Structure
 
-├── graph_gen.cpp # C++ file to generate random undirected graphs
-├── min_vertx.cu # CUDA implementation of the MVC algorithm
-├── un_graph.h # C code which defines the structre of the Undirected graph.
+─ graph_gen.cpp # C++ file to generate random undirected graphs.
+─ min_vertx.cu # CUDA implementation of the MVC algorithm.
+─ un_graph.h # C code which defines the structre of the Undirected graph.
 
 
 ## ⚙️ Build Instructions
