@@ -92,7 +92,8 @@ To evaluate the performance of the CUDA-based MVC solver, we ran tests on large-
 - **Number of Edges:** 21,000,000  
 - **Execution Time:** ~955 ms
 
-![Benchmark 1](./Screenshot%202025-07-27%20at%208.32.28%E2%80%AFPM.png)
+<img width="436" height="98" alt="Image" src="https://github.com/user-attachments/assets/608e735c-9fec-4725-ade7-fe9b6bf86244" />
+
 
 ---
 
@@ -102,7 +103,7 @@ To evaluate the performance of the CUDA-based MVC solver, we ran tests on large-
 - **Number of Edges:** 10,000,000  
 - **Execution Time:** ~115 ms
 
-![Benchmark 2](./Screenshot%202025-07-27%20at%208.50.11%E2%80%AFPM.png)
+<img width="185" height="45" alt="Image" src="https://github.com/user-attachments/assets/03a282af-33e5-4dee-8f72-4283e3dfaf55" />
 
 ---
 
