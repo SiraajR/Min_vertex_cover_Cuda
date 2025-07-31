@@ -82,6 +82,33 @@ These arrays are updated iteratively by different CUDA kernels, enabling converg
 - This parallel approach performs best on large, sparse graphs due to reduced inter-thread contention.
 
 ---
+## 📈 Performance Results
+
+To evaluate the performance of the CUDA-based MVC solver, we ran tests on large-scale graphs with varying sizes.
+
+### ✅ Benchmark 1
+
+- **Number of Nodes:** 7,000,000  
+- **Number of Edges:** 21,000,000  
+- **Execution Time:** ~955 ms
+
+![Benchmark 1](./Screenshot%202025-07-27%20at%208.32.28%E2%80%AFPM.png)
+
+---
+
+### ✅ Benchmark 2
+
+- **Number of Nodes:** 10,000,000  
+- **Number of Edges:** 10,000,000  
+- **Execution Time:** ~115 ms
+
+![Benchmark 2](./Screenshot%202025-07-27%20at%208.50.11%E2%80%AFPM.png)
+
+---
+
+The execution time depends not only on the number of nodes but also the edge density and the structure of the graph. The algorithm is designed to converge faster when a majority of nodes can quickly satisfy adjacency constraints.
+
+---
 
 ## 🖥️ Recommended GPU Specs
 
